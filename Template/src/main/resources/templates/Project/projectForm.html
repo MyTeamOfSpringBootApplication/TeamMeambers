@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Registration</title>
+</head>
+<body>
+
+    <form th:action="@{/project/register}" method="post" th:object="${project}">
+        Project Number: <input type="text" style="padding: 5px;" th:field="*{pr_number}" /><br><br>
+        Project Badget: <input type="text" style="padding: 5px;" th:field="*{badget}" /><br><br>
+        <button type="submit" style="padding: 5px;">Register</button>
+    </form>
+
+</body>
+</html>
