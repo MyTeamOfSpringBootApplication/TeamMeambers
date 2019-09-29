@@ -7,9 +7,11 @@
 <body>
 
     <form th:action="@{/project/register}" method="post" th:object="${project}">
+        <input type="hidden" th:field="*{id}" />
+        Project Name: <input type="text" style="padding: 5px;" th:field="*{pr_name}" /><br><br>
         Project Number: <input type="text" style="padding: 5px;" th:field="*{pr_number}" /><br><br>
         Project Badget: <input type="text" style="padding: 5px;" th:field="*{budget}" /><br><br>
-        <button type="submit" style="padding: 5px;">Register</button>
+        <button type="submit" style="padding: 5px; margin-right: 3px;">Register</button><button style="padding: 5px;"><a th:href="@{/project}">Back</a></button><br><br>
     </form>
 
 </body>

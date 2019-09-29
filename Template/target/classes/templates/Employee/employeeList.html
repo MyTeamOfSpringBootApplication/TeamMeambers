@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Employees</title>
+</head>
+<body>
+<button><a th:href="@{/employee/register}">Add Employee</a></button><br>
+    <table border="1px">
+        <tr>
+            <th>ID</th>
+            <th>FirsName</th>
+            <th>LastName</th>
+            <th>Number</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="employee: ${employees}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.em_firstname}"></td>
+            <td th:text="${employee.em_lastname}"></td>
+            <td th:text="${employee.em_number}"></td>
+            <td>
+                <button style="padding: 3px; margin-right: 2px;"><a th:href="@{'/employee/edit/' + ${employee.id} }">Edit</a></button>
+                <form th:action="@{/employee/delete/{id}(id = ${employee.id}) }" method="post" style="display:inline;">
+                    <button style="padding: 3px;" onclick="return confirm('Do you want to delete this employee?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>

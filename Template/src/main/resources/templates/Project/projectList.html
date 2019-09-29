@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Projects</title>
+</head>
+<body>
+    <button><a th:href="@{/project/register}">Add Project</a></button><br>
+    <table border="1px">
+        <tr>
+            <th>ID</th>
+            <th>Project Name</th>
+            <th>Project Number</th>
+            <th>Project Budjet</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="project: ${projects}">
+            <td th:text="${project.id}"></td>
+            <td th:text="${project.pr_name}"></td>
+            <td th:text="${project.pr_number}"></td>
+            <td th:text="${project.budget}"></td>
+            <td>
+                <button style="padding: 3px; margin-right: 2px;"><a th:href="@{'/project/edit/' + ${project.id} }">Edit</a></button>
+                <form th:action="@{/project/delete/{id}(id = ${project.id}) }" method="post" style="display:inline;">
+                    <button style="padding: 3px;" onclick="return confirm('Do you want to delete this Project?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>

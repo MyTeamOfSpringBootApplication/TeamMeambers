@@ -7,10 +7,11 @@
 <body>
 
     <form th:action="@{/department/register}" method="post" th:object="${department}">
+        <input type="hidden" th:field="*{id}" />
         Department Number: <input type="text" style="padding: 5px;" th:field="*{de_number}" /><br><br>
         Departmnet Name: <input type="text" style="padding: 5px;" th:field="*{de_name}" /><br><br>
         Department Location: <input type="text" style="padding: 5px;" th:field="*{de_location}" /><br><br>
-        <button type="submit" style="padding: 5px;">Register</button>
+        <button type="submit" style="padding: 5px;">Register</button><button style="padding: 5px;"><a th:href="@{/department}">Back</a></button><br><br>
     </form>
 
 </body>

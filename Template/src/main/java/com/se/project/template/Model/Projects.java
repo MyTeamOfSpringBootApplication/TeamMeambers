@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class Projects {
     @Column(name = "project_id")
     private long id;
+    private String pr_name;
     private String pr_number;
     private double budget;
 
@@ -27,6 +28,14 @@ public class Projects {
 
     public void setPr_number(String pr_number) {
         this.pr_number = pr_number;
+    }
+
+    public String getPr_name() {
+        return pr_name;
+    }
+
+    public void setPr_name(String pr_name) {
+        this.pr_name = pr_name;
     }
 
     public double getBudget() {

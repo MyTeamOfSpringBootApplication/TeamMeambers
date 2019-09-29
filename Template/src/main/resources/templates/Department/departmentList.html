@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List Of Departments</title>
+</head>
+<body>
+<button><a th:href="@{/department/register}">Add Employee</a></button><br>
+<table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>Department Number</th>
+        <th>Department Name</th>
+        <th>Department Location</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="department: ${departments}">
+        <td th:text="${department.id}"></td>
+        <td th:text="${department.de_number}"></td>
+        <td th:text="${department.de_name}"></td>
+        <td th:text="${department.de_location}"></td>
+        <td>
+            <button style="padding: 3px; margin-right: 2px;"><a th:href="@{'/department/edit/' + ${department.id} }">Edit</a></button>
+            <form th:action="@{/department/delete/{id}(id = ${department.id}) }" method="post" style="display:inline;">
+                <button style="padding: 3px;" onclick="return confirm('Do you want to delete this Department?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
