@@ -3,7 +3,7 @@ package com.se.project.template.Model;
 import javax.persistence.*;
 
 @Entity
-public class employees {
+public class Employees {
     @Column(name = "employee_id")
     private long id;
     private String em_firstname;

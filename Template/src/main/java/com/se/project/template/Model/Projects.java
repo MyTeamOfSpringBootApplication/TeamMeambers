@@ -5,7 +5,7 @@ import com.sun.javafx.beans.IDProperty;
 import javax.persistence.*;
 
 @Entity
-public class projects {
+public class Projects {
     @Column(name = "project_id")
     private long id;
     private String pr_number;

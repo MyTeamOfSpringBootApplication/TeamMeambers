@@ -3,7 +3,7 @@ package com.se.project.template.Model;
 import javax.persistence.*;
 
 @Entity
-public class departments {
+public class Departments {
     @Column(name = "department_id")
     private long id;
     private String de_number;
