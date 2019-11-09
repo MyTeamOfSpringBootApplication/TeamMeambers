@@ -34,7 +34,6 @@ public class DepartmentController {
         model.addAttribute("department", department);
         return "Department/departmentForm";
     }
-
     @PostMapping("department/delete/{id}")
     public String deleteDepartment(@PathVariable Long id){
         departmentService.deleteDepartmentById(id);

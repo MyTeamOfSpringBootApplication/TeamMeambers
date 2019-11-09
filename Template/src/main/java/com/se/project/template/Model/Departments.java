@@ -1,14 +1,18 @@
 package com.se.project.template.Model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Departments {
-    @Column(name = "department_id")
+
     private long id;
     private String de_number;
     private String de_name;
     private String de_location;
+
+    //Mapping the relationships with the employee table
+    private Set<Employees> employees;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,5 +46,14 @@ public class Departments {
 
     public void setDe_location(String de_location) {
         this.de_location = de_location;
+    }
+
+    @OneToMany(mappedBy = "department")
+    public Set<Employees> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employees> employees) {
+        this.employees = employees;
     }
 }
